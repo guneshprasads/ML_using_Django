@@ -8,6 +8,11 @@ app_name = "Openml"
 urlpatterns = [  
     path('',views.index,name='index'),
     path('login/',views.login,name='login'),
-    #path('up/',views.up,name='up'),
     path('upload/csv/', views.upload_csv, name='upload_csv'),
+    path('xy/',views.xy),
+    path('train_test/',views.train_test),
+    path('slr/',views.slr),
+    path('prediction/',views.prediction),
+    path('visual_traindata/',views.visual_traindata),
+    path('visual_testdata/',views.visual_testdata),
 ]
