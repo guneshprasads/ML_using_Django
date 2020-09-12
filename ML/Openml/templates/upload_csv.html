@@ -1,9 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
 <form action="{% url "Openml:upload_csv" %}" method="POST" enctype="multipart/form-data" class="form-horizontal"> 
 {% csrf_token %}
 <div class="form-group">
     <label for="name" class="col-md-3 col-sm-3 col-xs-12 control-label">1.UploadFile: </label>
     <div class="col-md-8">
-        <input type="file" name="filename">
+        <input type="file" name="filename" value="{{msg}}">
     </div>                    
 </div>
 <div class="form-group">                    
@@ -57,3 +59,4 @@
   <label for="name">7.Visualising the Training set results</label>
   <input type="submit">
 </form>
+{% endblock %}
