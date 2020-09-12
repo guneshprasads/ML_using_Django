@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from django.http import HttpResponse
-
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     if request.method == 'POST':       
@@ -32,14 +32,15 @@ def handle_uploaded_file(f):
     with open('/home/gups/workingdir/ML_using_Django/ML/Openml/uploaded_file/save.csv', 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)       
-
+            
 def upload_csv(request):
     if request.method=='POST':
         form = Csv(request.POST,request.FILES)
         f= request.FILES['filename']  
         handle_uploaded_file(f)   
-        reading_csv(f)           
-        return redirect('/upload/csv')
+        reading_csv(f)
+        context={'msg':'upload done'}           
+        return render(request, 'upload_csv.html',context)
     else:
         return render(request, 'upload_csv.html')
 
@@ -106,7 +107,6 @@ def visual_traindata(request):
 
 def visual_testdata(request):
     global X_train,y_train,regressor,X_test, y_test
-    pdb.set_trace()
     plt.scatter(X_test, y_test, color = 'red')
     plt.plot(X_train, regressor.predict(X_train), color = 'blue')
     plt.title('Salary vs Experience (Test set)')
