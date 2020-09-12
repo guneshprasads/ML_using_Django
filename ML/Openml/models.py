@@ -21,6 +21,7 @@ class Csv(forms.Form):
 	title = forms.CharField(max_length=50)
 	myfile = forms.FileField()
 
-class Matrix(models.Model):
-    X = models.IntegerField()
-    Y = models.IntegerField()
+class Values(models.Model):
+    x_value=models.CharField(max_length=7)
+    y_value=models.CharField(max_length=7)
+
