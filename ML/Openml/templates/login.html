@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block body %}
+{% block content %}
 <form method="POST" class="post-form" action="/login/">  
     {% csrf_token %}
     <div class="col-md-2">
@@ -20,6 +20,5 @@
             <button class="btn btn-primary form-control"><span class="glyphicon glyphicon-log-in"></span> Login</button>
         </div>
     </div>
-</form>
- 
+</form> 
 {% endblock %}
