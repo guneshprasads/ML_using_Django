@@ -13,16 +13,47 @@
 </div>
 </form>
 
-<form action="/">
-  <label for="quantity">2.Matrix:</label>
+
+<form action="/xy/" method="GET">  
+  <label for="name">2.Matrix:</label>
   <div>
-  <label for="quantity">X = </label>
-  <input type="number" id="quantity" name="quantity" min="1" max="5">
-  <input type="submit">
+    <div>
+    <label for="x">X = </label>
+    <input type="number" name="x" id="x" value="{{x}}">
+    </div>
+    <div>
+    <label for="y">Y = </label>
+    <input type="number" name="y" id="y" value="{{y}}">
+    </div>
+    <input type="submit">
   </div>
-  <div>
-  <label for="quantity">Y = </label>
-  <input type="number" id="quantity" name="quantity" min="1" max="5">
+</form>
+
+<form action="/train_test/" method='GET'>
+  <label for="name">3.Train and Test data</label>
   <input type="submit">
-  </div>
+  {{msg}}
+</form>
+
+<form action="/slr/" method='GET'>
+  <label for="name">4.Simple linear Regression</label>
+  <input type="submit">
+  {{slr}}
+</form>
+
+<form action="/prediction/" method='GET'>
+  <label for="name">5.Prediction</label>
+  <input type="submit">
+  {{y_pred}}
+</form>
+
+
+<form action="/visual_testdata/" method='GET'>
+  <label for="name">6.Visualising the Test set results</label>
+  <input type="submit">
+</form>
+
+<form action="/visual_traindata/" method='GET'>
+  <label for="name">7.Visualising the Training set results</label>
+  <input type="submit">
 </form>
