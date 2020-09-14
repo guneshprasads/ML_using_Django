@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from sklearn.impute import SimpleImputer
 
 def index(request):
     if request.method == 'POST':       
@@ -115,4 +116,5 @@ def visual_testdata(request):
     plt.savefig('Test.png', dpi=220)
     image_data = open("/home/gups/workingdir/ML_using_Django/ML/Test.png", "rb").read()
     return HttpResponse(image_data, content_type="image/png")
+
     
