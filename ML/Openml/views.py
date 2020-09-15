@@ -73,12 +73,21 @@ def create_matrix(x,y):
     y=y-1
     X=dataset.iloc[:,:x].values
     Y=dataset.iloc[:,y:].values
+
+def missing_values(request):
+    global X
+    imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
+    imputer.fit(X[:,:])
+    X[:,:] = imputer.transform(X[:,:])
+    context = {'mv' : 'Done'}
+    return render(request,'upload_csv.html',context)
+
     
 def train_test(request):
     global X,Y,X_train, X_test, y_train, y_test
     from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size = 1/3, random_state = 0)
-    context = {'msg':'Train and test data got Created'}
+    context = {'tt':'Train and test data got Created'}
     return render(request,'upload_csv.html',context)
 
 def slr(request):
@@ -116,5 +125,3 @@ def visual_testdata(request):
     plt.savefig('Test.png', dpi=220)
     image_data = open("/home/gups/workingdir/ML_using_Django/ML/Test.png", "rb").read()
     return HttpResponse(image_data, content_type="image/png")
-
-    
