@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/slr/" method='GET'>
+  <label for="name">1.Simple linear Regression</label>
+  <input type="submit">
+  {{slr}}
+</form>
+
+<form action="/prediction/" method='GET'>
+  <label for="name">3.Prediction</label>
+  <input type="submit">
+  {{y_pred}}
+</form>
+
+
+<form action="/visual_testdata/" method='GET'>
+  <label for="name">4.Visualising the Test set results</label>
+  <input type="submit">
+</form>
+
+<form action="/visual_traindata/" method='GET'>
+  <label for="name">5.Visualising the Training set results</label>
+  <input type="submit">
+</form>
+{% endblock %}

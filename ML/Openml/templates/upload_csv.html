@@ -5,13 +5,14 @@
 <div class="form-group">
     <label for="name" class="col-md-3 col-sm-3 col-xs-12 control-label">1.UploadFile: </label>
     <div class="col-md-8">
-        <input type="file" name="filename" value="{{msg}}">
+        <input type="file" name="filename">
     </div>                    
 </div>
 <div class="form-group">                    
     <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
          <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload </button>
     </div> 
+    {{msg}}
 </div>
 </form>
 
@@ -31,32 +32,37 @@
   </div>
 </form>
 
+<form action="/categorical_data/" method="GET">
+  <label for="categorical_data">3.Which coloumn you want to transform:</label>
+  <input type="number" name="a" id="a" value="{{a}}">
+  <input type="submit">
+</form>
+
+<form action="/missing_values/" method='GET'>
+  <label for="name">4.missing_values</label>
+  <input type="submit">
+  {{mv}}
+</form>
+
 <form action="/train_test/" method='GET'>
-  <label for="name">3.Train and Test data</label>
+  <label for="name">5.Train and Test data</label>
   <input type="submit">
-  {{msg}}
+  {{tt}}
 </form>
 
-<form action="/slr/" method='GET'>
-  <label for="name">4.Simple linear Regression</label>
-  <input type="submit">
-  {{slr}}
+<form action="/Feature_Scaling/" method="GET">  
+  <label for="name">6.Feature_Scaling:</label>
+  <div>
+    <div>
+    <label for="m">M = </label>
+    <input type="number" name="m" id="m" value="{{m}}">
+    </div>
+    <div>
+    <label for="n">n = </label>
+    <input type="number" name="n" id="n" value="{{n}}">
+    </div>
+    <input type="submit">
+  </div>
 </form>
 
-<form action="/prediction/" method='GET'>
-  <label for="name">5.Prediction</label>
-  <input type="submit">
-  {{y_pred}}
-</form>
-
-
-<form action="/visual_testdata/" method='GET'>
-  <label for="name">6.Visualising the Test set results</label>
-  <input type="submit">
-</form>
-
-<form action="/visual_traindata/" method='GET'>
-  <label for="name">7.Visualising the Training set results</label>
-  <input type="submit">
-</form>
 {% endblock %}
