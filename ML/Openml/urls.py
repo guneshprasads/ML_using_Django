@@ -13,7 +13,10 @@ urlpatterns = [
     path('missing_values/',views.missing_values),
     path('train_test/',views.train_test),
     path('slr/',views.slr),
+    path('Feature_Scaling/',views.Feature_Scaling),
     path('prediction/',views.prediction),
+    path('categorical_data/',views.categorical_data),
     path('visual_traindata/',views.visual_traindata),
     path('visual_testdata/',views.visual_testdata),
+    path('train_model/',views.train_model,name='train_model'),
 ]
